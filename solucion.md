@@ -134,7 +134,23 @@ Se debe crear una aplicación en Heroku y desplegarla allí usando github action
 Realice el despliege en AWS , en segida se muestran las acceiones, la aplicacion en AWS y el resultado del despliege.
 
 ```
-
+eploy_aws:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v20
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: app4Challenge
+          environment_name: App4challenge-env
+          version_label: ${{ github.sha }}
+          region: us-east-1
+          deployment_package: deploy.zip
 
 ```
 
