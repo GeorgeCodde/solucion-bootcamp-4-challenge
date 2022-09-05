@@ -1,3 +1,5 @@
+# Solución a challenge 4 de CI/CD
+
 ## Práctica 1
 
 Dado este proyecto en NodeJS, crea su Dockerfile sabiendo que nos han pedido como imagen base ubuntu:18.04, versión 16 de NodeJS, el 8888 será el puerto donde exponga la comunicación la applicación, la señal de STOP debe llegarle a la aplicación y el contenedor podría ser iniciado con cualquier proceso.
@@ -31,7 +33,8 @@ docker run -ti --rm -p 8888:8888 backend-node
 
 ```
 
-## Práctica 2
+## Práctica 2
+
 Sube la imagen de Docker a DockerHub.
 
 ```
@@ -40,8 +43,10 @@ docker tag backend-node jorgels120878/app-node:V1.0
 docker push jorgels120878/app-node:V1.0
 ```
 
-## Práctica 3
+## Práctica 3
+
 Automatiza el proceso de creación de la imagen de Docker y su subida a Docker Hub después de cada cambio en el repositorio utitlizando Github Actions.
 
-## Práctica 4
+## Práctica 4
+
 Se debe crear una aplicación en Heroku y desplegarla allí usando github actions.
